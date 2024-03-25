@@ -13,11 +13,12 @@ const config = {
     colors: {
       orange: "#F76B15",
       black: "#212121",
-      white: "#EDEEF0",
+      grayLight: "#B0B4BA",
       gray: "#777B84",
       red: "#ED4C5C",
       yellow: "#FDCB58",
       green: "#78B159",
+      white: "#EDEEF0",
     },
     container: {
       center: true,
