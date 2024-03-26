@@ -1,5 +1,6 @@
 import { About } from "@/components/about/About";
 import { Presentation } from "@/components/presentation/Presentation";
+import { Projects } from "@/components/projects/Projects";
 import { Separator } from "@/components/separator/Separator";
 
 export default function Home() {
@@ -8,6 +9,8 @@ export default function Home() {
       <Presentation />
       <Separator />
       <About />
+      <Separator />
+      <Projects />
       <Separator />
     </main>
   );
