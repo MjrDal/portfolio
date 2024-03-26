@@ -28,6 +28,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        custom: ["CustomFont", "sans-Serif"],
+        sans: ["Sahitya"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

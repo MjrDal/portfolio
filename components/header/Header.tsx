@@ -4,7 +4,7 @@ import { NavBar } from "./Nav";
 
 export const Header = () => {
   return (
-    <header className=" w-full flex justify-center items-center h-28 bg-black">
+    <header className="font-sans w-full flex justify-center items-center h-28 bg-black">
       <NavBar />
     </header>
   );
