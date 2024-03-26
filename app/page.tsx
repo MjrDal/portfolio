@@ -2,6 +2,7 @@ import { About } from "@/components/about/About";
 import { Presentation } from "@/components/presentation/Presentation";
 import { Projects } from "@/components/projects/Projects";
 import { Separator } from "@/components/separator/Separator";
+import { Skills } from "@/components/skills/Skills";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Separator />
       <Projects />
       <Separator />
+      <Skills />
     </main>
   );
 }
