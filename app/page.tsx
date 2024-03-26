@@ -1,4 +1,5 @@
 import { About } from "@/components/about/About";
+import { Contact } from "@/components/contact/Contact";
 import { Presentation } from "@/components/presentation/Presentation";
 import { Projects } from "@/components/projects/Projects";
 import { Separator } from "@/components/separator/Separator";
@@ -14,6 +15,7 @@ export default function Home() {
       <Projects />
       <Separator />
       <Skills />
+      <Contact />
     </main>
   );
 }
