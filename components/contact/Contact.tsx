@@ -10,9 +10,12 @@ export const Contact = () => {
           <div className="w-[15px] h-[15px] absolute bottom-1 rounded-full bg-orange"></div>
           <div className=" w-60 h-1.5 mx-1 bg-orange"></div>
         </div>
-        <p>I would be happy to answer you</p>
-        <p>Send me a message</p>
+        <p className="text-white text-xl">I would be happy to answer you</p>
+        <p className="text-white text-4xl box-border border-4 border-orange rounded-tr-xl rounded-bl-xl p-6">
+          Send me a message
+        </p>
       </div>
+      <form></form>
     </div>
   );
 };
