@@ -5,7 +5,7 @@ import { Projects } from "@/components/projects/Projects";
 import { Separator } from "@/components/separator/Separator";
 import { Skills } from "@/components/skills/Skills";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <Presentation />

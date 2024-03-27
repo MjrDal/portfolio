@@ -6,13 +6,13 @@ export const NavBar = () => {
   return (
     <nav className=" flex">
       <ul className=" flex flex-row items-center px-10 box-border border-4 border-orange text-white rounded-full h-24 gap-10 text-2xl">
-        <Link href="/">
+        <Link href="/home">
           <li>Home</li>
         </Link>
         <Link href="#About">
           <li>About me</li>
         </Link>
-        <Link href="/">
+        <Link href="/projects">
           <li>My project</li>
         </Link>
         <Link href="#Skills">

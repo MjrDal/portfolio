@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
 import { CardHome } from "../cardHome/CardHome";
 import { Title } from "../title/Title";
@@ -38,10 +39,12 @@ export const Projects = () => {
         />
       </div>
       <div className="flex justify-end p-4">
-        <Button className="bg-orange text-white py-8">
-          <p className="text-xl">All projects</p>
-          <FaAngleRight className="text-5xl" />
-        </Button>
+        <Link href="/projects">
+          <Button className="bg-orange text-white py-8">
+            <p className="text-xl">All projects</p>
+            <FaAngleRight className="text-5xl" />
+          </Button>
+        </Link>
       </div>
     </div>
   );
