@@ -17,11 +17,17 @@ export const Skills = () => {
         <WheelSkills
           image1="react.svg"
           image2="Vector.svg"
-          image3=""
-          image4=""
+          image3="/tailwind.png"
+          image4="/materialize.png"
           title="Framework"
         />
-        <WheelSkills image1="" image2="" image3="" image4="" title="Other" />
+        <WheelSkills
+          image1="/postgressql.png"
+          image2="/redux.png"
+          image3="/sass.png"
+          image4="/gihub.png"
+          title="Other"
+        />
       </div>
     </div>
   );
