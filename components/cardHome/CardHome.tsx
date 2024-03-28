@@ -22,13 +22,11 @@ export function CardHome({
   alt,
 }: CardHomeProps) {
   return (
-    <div className=" flex items-center justify-center ">
+    <div className=" flex  justify-center mb-14 ">
       <PinContainer title={titleLink} href={link}>
-        <div className="flex  flex-col  w-[20rem] h-[20rem] ">
-          <div>
-            <h3 className="max-w-xs !pb-2 !m-0 font-bold text-2xl text-white">
-              {title}
-            </h3>
+        <div className="flex  flex-col  w-[20rem] h-[20rem]">
+          <div className=" p-3">
+            <h3 className="font-bold text-2xl text-white">{title}</h3>
             <p className="text-base text-white ">{description}</p>
             <p className="text-xs text-white">Teck stack: {tag}</p>
           </div>

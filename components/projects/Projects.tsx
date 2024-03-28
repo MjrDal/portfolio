@@ -7,9 +7,9 @@ import { Button } from "../ui/button";
 
 export const Projects = () => {
   return (
-    <div className="font-sans mt-4">
+    <div className="font-sans mt-4 mb-14">
       <Title title="My projects" />
-      <div className="flex flex-row mb-20">
+      <div className="flex flex-row mt-[80px]">
         <CardHome
           titleLink="See Kasa code"
           link="https://github.com/MjrDal/Kasa"
@@ -40,7 +40,7 @@ export const Projects = () => {
       </div>
       <div className="flex justify-end p-4">
         <Link href="/projects">
-          <Button className="bg-orange text-white py-8">
+          <Button className="bg-orange text-white py-7">
             <p className="text-xl">All projects</p>
             <FaAngleRight className="text-5xl" />
           </Button>
