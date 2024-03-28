@@ -4,9 +4,9 @@ import { Title } from "../title/Title";
 
 export const About = () => {
   return (
-    <div className="font-sans mt-4">
+    <div className="font-sans mt-4 mb-[180px]">
       <Title title="About me" />
-      <div className=" flex flex-row items-center pt-6 px-6">
+      <div className=" flex flex-row items-center pt-6 px-10 gap-32">
         <p className="text-white text-xl">
           Passionate about digital creation and consistently interested in the
           latest technological advancements, I am a dedicated front-end
@@ -18,8 +18,8 @@ export const About = () => {
         </p>
         <Image
           src="/computer.svg"
-          width={300}
-          height={300}
+          width={400}
+          height={400}
           alt="Image computer"
         />
       </div>
