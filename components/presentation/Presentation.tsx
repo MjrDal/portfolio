@@ -12,10 +12,10 @@ export const Presentation = () => {
         <div className=" w-full h-11 bg-gray rounded-t-lg">
           <Dot />
         </div>
-        <div className=" flex flex-col h-full">
-          <div className="flex flex-row pl-5 pt-6">
+        <div className=" flex flex-col h-[286px] place-content-between">
+          <div className="flex flex-row pl-8 pt-6">
             <p className=" text-white text-5xl ">{spec}</p>
-            <div className="font-sans ml-2">
+            <div className="font-sans ml-2 mr-[130px]">
               <h1 className=" text-white text-5xl"> Julien DALLOZ</h1>
               <p className=" text-white text-3xl">Front-end developer</p>
               <p className=" text-xl mt-2">
@@ -25,7 +25,7 @@ export const Presentation = () => {
             </div>
           </div>
 
-          <div className=" w-full flex pr-4 pt-5">
+          <div className=" w-full pr-8 pb-5">
             <Social width="40px" />
           </div>
         </div>
