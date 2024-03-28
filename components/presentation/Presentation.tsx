@@ -7,7 +7,7 @@ import { Dot } from "../dot/Dot";
 export const Presentation = () => {
   const spec = "</>";
   return (
-    <section className="  w-full flex flex-row justify-center items-center gap-8">
+    <section className="  w-full flex flex-row justify-center items-center gap-8 mb-[190px]">
       <div className="w-[41.375rem] h-[20.625rem] bg-grayLight rounded-lg">
         <div className=" w-full h-11 bg-gray rounded-t-lg">
           <Dot />
