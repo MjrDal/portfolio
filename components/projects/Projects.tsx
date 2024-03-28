@@ -15,7 +15,7 @@ export const Projects = () => {
           link="https://github.com/MjrDal/Kasa"
           title="Kasa"
           description="Creation of a real estate rental web application"
-          tag="javascript/html/css"
+          tag="React/html/Scss"
           image="/kasa.PNG"
           alt="image du site Kasa"
         />
