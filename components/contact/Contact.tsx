@@ -15,6 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { POST } from "@/app/api/send/route";
 import { useState, useTransition } from "react";
 import { FormError } from "../messages/form-error";
 import { FormSuccess } from "../messages/form-success";
@@ -27,18 +28,19 @@ export const Contact = () => {
   const form = useForm<z.infer<typeof ContactSchema>>({
     resolver: zodResolver(ContactSchema),
     defaultValues: {
-      email: "",
       name: "",
-      text: "",
+      email: "",
+      message: "",
     },
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof ContactSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+
+  const onSubmit = (values: z.infer<typeof ContactSchema>) => {
     console.log(values);
-  }
+    POST(values.name, values.email, values.message);
+  };
+
   return (
     <div className="font-sans w-full mt-4">
       <div className="flex flex-col items-center">
@@ -104,7 +106,7 @@ export const Contact = () => {
           <div className="flex justify-center mb-[90px]">
             <FormField
               control={form.control}
-              name="text"
+              name="message"
               render={({ field }) => (
                 <FormItem className=" flex flex-col w-[800px]">
                   <FormLabel className=" text-orange/[.5] text-base">
