@@ -59,7 +59,7 @@ export const Contact = () => {
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
-          <div className=" flex flex-row items-center justify-center gap-[100px] mb-[100px]">
+          <div className=" flex flex-row justify-center gap-[100px] mb-[100px]">
             <FormField
               control={form.control}
               name="name"
