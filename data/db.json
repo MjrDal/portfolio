@@ -2,18 +2,20 @@
   {
     "id": "jdA1841adfiv",
     "title": "Kasa",
-    "description": "Creation of a real estate rental web application",
+    "lightDescription": "Creation of a real estate rental web application",
+    "largDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "tag": ["html", "css", "react"],
     "link": "https://github.com/MjrDal/Kasa",
     "image1": "/kasa.PNG",
     "alt1": "image du site Kasa",
-    "image2": "",
-    "alt2": ""
+    "image2": "/kasaMobile.PNG",
+    "alt2": "image du site Kasa version mobile"
   },
   {
     "id": "jdB18987adiiby",
     "title": "Ohmyfood",
-    "description": "Development of a website that lists the menus of gourmet restaurants",
+    "lightDescription": "Development of a website that lists the menus of gourmet restaurants",
+    "largDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "tag": ["html", "css"],
     "link": "https://github.com/MjrDal/site-OhMyFood-Paris",
     "image1": "/ohmyfood.PNG",
@@ -24,7 +26,8 @@
   {
     "id": "jdC18987adiiby",
     "title": "Sophie Bluel",
-    "description": "Developing a portfolio for an interior designer",
+    "lightDescription": "Developing a portfolio for an interior designer",
+    "largDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "tag": ["html", "css", "react"],
     "link": "https://github.com/MjrDal/Portfolio-architecte-sophie-bluel-master",
     "image1": "/sophiebluel.PNG",
@@ -35,7 +38,8 @@
   {
     "id": "jdD18987adiiby",
     "title": "Argent Banck",
-    "description": "Developing a portfolio for an interior designer",
+    "lightDescription": "Developing a portfolio for an interior designer",
+    "largDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "tag": ["html", "css", "react", "redux"],
     "link": "https://github.com/MjrDal/Portfolio-architecte-sophie-bluel-master",
     "image1": "/sophiebluel.PNG",

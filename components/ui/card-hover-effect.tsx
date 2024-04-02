@@ -67,7 +67,7 @@ export const HoverEffect = ({ className }: { className?: string }) => {
                   </CardHeader>
                   <CardContent>
                     <CardTitle>{item.title}</CardTitle>
-                    <CardDescription>{item.description}</CardDescription>
+                    <CardDescription>{item.lightDescription}</CardDescription>
                   </CardContent>
                   <CardFooter>
                     <p>Teck stack: </p>
@@ -101,11 +101,11 @@ export const HoverEffect = ({ className }: { className?: string }) => {
             </div>
           </DialogHeader>
           <div>
-            <div className=" flex flex-row">
+            <div className=" flex flex-row gap-2">
               <Image
                 src={items[idxNumber].image1}
-                width={400}
-                height={400}
+                width={360}
+                height={266}
                 alt={items[idxNumber].alt1}
                 className="rounded-[10px]"
               />
@@ -118,12 +118,14 @@ export const HoverEffect = ({ className }: { className?: string }) => {
               />
             </div>
             <div>
-              <p className="text-base">{items[idxNumber].description}</p>
+              <p className="text-base">{items[idxNumber].largDescription}</p>
             </div>
           </div>
           <DialogFooter>
             <Link href="/">
-              <Button>View code </Button>
+              <Button className=" bg-orange text-white w-36 text-xl">
+                View code{" "}
+              </Button>
             </Link>
           </DialogFooter>
         </DialogContent>
