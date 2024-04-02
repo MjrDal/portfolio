@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -13,6 +12,7 @@ import items from "@/data/db.json";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { CardContent, CardFooter, CardHeader } from "./card";
 
@@ -79,17 +79,52 @@ export const HoverEffect = ({ className }: { className?: string }) => {
           </div>
         ))}
 
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Edit profile {items[idxNumber].title}</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
-              done.
-            </DialogDescription>
+        <DialogContent className=" flex flex-col justify-center items-center bg-black text-white">
+          <DialogHeader className="flex flex-col items-center">
+            <DialogTitle className="text-4xl">
+              {items[idxNumber].title}
+            </DialogTitle>
+            <div className=" h-[15px] relative mb-6 ">
+              <div className="w-[15px] h-[15px] absolute bottom-1 right-0 rounded-full bg-orange"></div>
+              <div className="w-[15px] h-[15px] absolute bottom-1 rounded-full bg-orange"></div>
+              <div className=" w-60 h-1.5 mx-1 bg-orange"></div>
+            </div>
+            <div className=" flex flex-row gap-4">
+              {items[idxNumber].tag.map((item, index) => (
+                <p
+                  className=" bg-grayLight text-black w-10 text-center text-xs h-5 rounded-[10px]"
+                  key={index}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
           </DialogHeader>
-
+          <div>
+            <div className=" flex flex-row">
+              <Image
+                src={items[idxNumber].image1}
+                width={400}
+                height={400}
+                alt={items[idxNumber].alt1}
+                className="rounded-[10px]"
+              />
+              <Image
+                src={items[idxNumber].image2}
+                width={400}
+                height={400}
+                alt={items[idxNumber].alt2}
+                className="rounded-[10px]"
+              />
+            </div>
+            <div>
+              <p className="text-base">{items[idxNumber].description}</p>
+            </div>
+          </div>
           <DialogFooter>
-            <Button type="submit">Save changes</Button>
+            <Link href="/">
+              <Button>View code </Button>
+            </Link>
           </DialogFooter>
         </DialogContent>
       </Dialog>
