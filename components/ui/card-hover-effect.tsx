@@ -56,8 +56,8 @@ export const HoverEffect = ({ className }: { className?: string }) => {
 
             <DialogTrigger asChild>
               <div>
-                <Card>
-                  <CardHeader>
+                <Card className=" bg-gray m-0 p-0">
+                  <CardHeader className=" m-0 p-0 h-[190px] overflow-hidden bg-orange">
                     <Image
                       src={item.image1}
                       width={400}
@@ -101,11 +101,11 @@ export const HoverEffect = ({ className }: { className?: string }) => {
             </div>
           </DialogHeader>
           <div>
-            <div className=" flex flex-row gap-2">
+            <div className=" flex flex-row">
               <Image
                 src={items[idxNumber].image1}
-                width={360}
-                height={266}
+                width={400}
+                height={296}
                 alt={items[idxNumber].alt1}
                 className="rounded-[10px]"
               />
@@ -144,12 +144,12 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
         className
       )}
     >
       <div className="relative z-50">
-        <div className="p-4">{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   );
@@ -177,7 +177,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
+        " text-zinc-400 tracking-wide leading-relaxed text-sm",
         className
       )}
     >

@@ -10,7 +10,7 @@ import {
 export default function ProjectsPage() {
   return (
     <main className="flex flex-col items-center p-24 bg-black">
-      <div>
+      <div className="text-white">
         <Select>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Theme" />
@@ -23,7 +23,7 @@ export default function ProjectsPage() {
         </Select>
       </div>
       <div className="max-w-5xl mx-auto px-8">
-        <HoverEffect />
+        <HoverEffect className=" text-white" />
       </div>
     </main>
   );
