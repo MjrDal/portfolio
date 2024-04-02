@@ -1,8 +1,10 @@
 "use client";
+import items from "@/data/db.json";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
-import items from "@/data/db.json";
+import { CardContent, CardFooter, CardHeader } from "./card";
 
 export const HoverEffect = ({ className }: { className?: string }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -39,8 +41,22 @@ export const HoverEffect = ({ className }: { className?: string }) => {
             )}
           </AnimatePresence>
           <Card>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardHeader>
+              <Image
+                src={item.image1}
+                width={400}
+                height={400}
+                alt={item.alt1}
+              />
+            </CardHeader>
+            <CardContent>
+              <CardTitle>{item.title}</CardTitle>
+              <CardDescription>{item.description}</CardDescription>
+            </CardContent>
+            <CardFooter>
+              <p>Teck stack: </p>
+              <p>{item.tag.join(" / ")}</p>
+            </CardFooter>
           </Card>
         </div>
       ))}
