@@ -31,5 +31,16 @@
     "alt1": "image du site sophie bluel",
     "image2": "",
     "alt2": ""
+  },
+  {
+    "id": "jdD18987adiiby",
+    "title": "Argent Banck",
+    "description": "Developing a portfolio for an interior designer",
+    "tag": ["html", "css", "react", "redux"],
+    "link": "https://github.com/MjrDal/Portfolio-architecte-sophie-bluel-master",
+    "image1": "/sophiebluel.PNG",
+    "alt1": "image du site sophie bluel",
+    "image2": "",
+    "alt2": ""
   }
 ]
