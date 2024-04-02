@@ -1,0 +1,35 @@
+[
+  {
+    "id": "jdA1841adfiv",
+    "title": "Kasa",
+    "description": "Creation of a real estate rental web application",
+    "tag": ["html", "css", "react"],
+    "link": "https://github.com/MjrDal/Kasa",
+    "image1": "/kasa.PNG",
+    "alt1": "image du site Kasa",
+    "image2": "",
+    "alt2": ""
+  },
+  {
+    "id": "jdB18987adiiby",
+    "title": "Ohmyfood",
+    "description": "Development of a website that lists the menus of gourmet restaurants",
+    "tag": ["html", "css"],
+    "link": "https://github.com/MjrDal/site-OhMyFood-Paris",
+    "image1": "/ohmyfood.PNG",
+    "alt1": "image du site ohmyfood",
+    "image2": "",
+    "alt2": ""
+  },
+  {
+    "id": "jdC18987adiiby",
+    "title": "Sophie Bluel",
+    "description": "Developing a portfolio for an interior designer",
+    "tag": ["html", "css", "react"],
+    "link": "https://github.com/MjrDal/Portfolio-architecte-sophie-bluel-master",
+    "image1": "/sophiebluel.PNG",
+    "alt1": "image du site sophie bluel",
+    "image2": "",
+    "alt2": ""
+  }
+]
