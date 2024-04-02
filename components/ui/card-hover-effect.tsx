@@ -20,8 +20,6 @@ export const HoverEffect = ({ className }: { className?: string }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   let [idxNumber, setIdxNumber] = useState(0);
 
-  console.log(idxNumber);
-
   return (
     <div
       className={cn(
@@ -56,27 +54,28 @@ export const HoverEffect = ({ className }: { className?: string }) => {
               )}
             </AnimatePresence>
 
-            <Card>
-              <DialogTrigger asChild>
-                <Button type="submit">Save changes</Button>
-              </DialogTrigger>
-              <CardHeader>
-                <Image
-                  src={item.image1}
-                  width={400}
-                  height={400}
-                  alt={item.alt1}
-                />
-              </CardHeader>
-              <CardContent>
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardContent>
-              <CardFooter>
-                <p>Teck stack: </p>
-                <p>{item.tag.join(" / ")}</p>
-              </CardFooter>
-            </Card>
+            <DialogTrigger asChild>
+              <div>
+                <Card>
+                  <CardHeader>
+                    <Image
+                      src={item.image1}
+                      width={400}
+                      height={400}
+                      alt={item.alt1}
+                    />
+                  </CardHeader>
+                  <CardContent>
+                    <CardTitle>{item.title}</CardTitle>
+                    <CardDescription>{item.description}</CardDescription>
+                  </CardContent>
+                  <CardFooter>
+                    <p>Teck stack: </p>
+                    <p>{item.tag.join(" / ")}</p>
+                  </CardFooter>
+                </Card>
+              </div>
+            </DialogTrigger>
           </div>
         ))}
 
