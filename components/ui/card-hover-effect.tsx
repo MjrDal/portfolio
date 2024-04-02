@@ -109,13 +109,15 @@ export const HoverEffect = ({ className }: { className?: string }) => {
                 alt={items[idxNumber].alt1}
                 className="rounded-[10px]"
               />
-              <Image
-                src={items[idxNumber].image2}
-                width={400}
-                height={400}
-                alt={items[idxNumber].alt2}
-                className="rounded-[10px]"
-              />
+              {items[idxNumber].image2 ? (
+                <Image
+                  src={items[idxNumber].image2}
+                  width={400}
+                  height={400}
+                  alt={items[idxNumber].alt2}
+                  className="rounded-[10px]"
+                />
+              ) : null}
             </div>
             <div>
               <p className="text-base">{items[idxNumber].largDescription}</p>
