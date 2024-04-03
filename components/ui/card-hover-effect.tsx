@@ -79,7 +79,7 @@ export const HoverEffect = ({ className }: { className?: string }) => {
           </div>
         ))}
 
-        <DialogContent className=" flex flex-col justify-center items-center bg-black text-white">
+        <DialogContent className=" flex flex-col justify-center items-center px-6 pb-14 pt-8 bg-black text-white">
           <DialogHeader className="flex flex-col items-center">
             <DialogTitle className="text-4xl">
               {items[idxNumber].title}
@@ -101,7 +101,7 @@ export const HoverEffect = ({ className }: { className?: string }) => {
             </div>
           </DialogHeader>
           <div>
-            <div className=" flex flex-row">
+            <div className=" flex flex-row justify-center mt-2">
               <Image
                 src={items[idxNumber].image1}
                 width={400}
@@ -119,11 +119,11 @@ export const HoverEffect = ({ className }: { className?: string }) => {
                 />
               ) : null}
             </div>
-            <div>
+            <div className="mt-4">
               <p className="text-base">{items[idxNumber].largDescription}</p>
             </div>
           </div>
-          <DialogFooter>
+          <DialogFooter className="mt-11">
             <Link href="/">
               <Button className=" bg-orange text-white w-36 text-xl">
                 View code{" "}
