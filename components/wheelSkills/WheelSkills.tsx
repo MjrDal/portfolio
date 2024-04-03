@@ -17,7 +17,7 @@ export const WheelSkills = ({
   title,
 }: WheelSkillsProps) => {
   return (
-    <div className="font-sans mt-4 w-[380px] h-[380px] relative flex justify-center items-center rounded-full">
+    <div className="font-sans w-[380px] h-[380px] relative flex justify-center items-center rounded-full">
       <div className="w-[300px] h-[300px] flex justify-center items-center rounded-full bg-orange">
         <div className="w-[280px] h-[280px] flex justify-center items-center rounded-full bg-black text-white text-2xl">
           {title}

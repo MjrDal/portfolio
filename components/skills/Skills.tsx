@@ -6,8 +6,8 @@ export const Skills = () => {
   return (
     <div className="font-sans mt-4">
       <Title title="My skills" />
-      <div className="flex flex-col justify-center mt-4 mb-8">
-        <div className=" flex flex-row gap-8 ">
+      <div className="flex flex-col items-center scale-75 md:scale-100 ">
+        <div className=" flex flex-col sm:flex-row mb-4 gap-4 ">
           <WheelSkills
             image1="/html-5.svg"
             image2="css-3.svg"
@@ -23,7 +23,7 @@ export const Skills = () => {
             title="Framework"
           />
         </div>
-        <div className=" flex justify-center ">
+        <div className="">
           <WheelSkills
             image1="/postgressql.png"
             image2="/redux.png"

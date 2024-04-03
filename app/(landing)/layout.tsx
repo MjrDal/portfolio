@@ -3,7 +3,7 @@ import { Header } from "@/components/header/Header";
 
 const PagesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className=" flex flex-col items-center bg-black ">
+    <div className="  bg-black ">
       <Header />
       {children}
       <Footer />

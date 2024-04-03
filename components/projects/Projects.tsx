@@ -9,7 +9,7 @@ export const Projects = () => {
   return (
     <div className="font-sans mt-4 mb-14">
       <Title title="My projects" />
-      <div className="flex flex-row mt-[80px]">
+      <div className="flex flex-col mt-[80px]">
         <CardHome
           titleLink="See Kasa code"
           link="https://github.com/MjrDal/Kasa"

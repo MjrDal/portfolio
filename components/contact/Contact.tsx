@@ -42,7 +42,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="font-sans w-full mt-4">
+    <div className="font-sans w-full mt-4 mb-8">
       <div className="flex flex-col items-center">
         <h2 className="text-5xl  text-white mb-2 pt-14">Contact</h2>
         <div className=" h-[15px] relative mb-6 ">
@@ -59,12 +59,12 @@ export const Contact = () => {
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
-          <div className=" flex flex-row justify-center gap-[100px] mb-[100px]">
+          <div className=" flex flex-col justify-center items-center gap-[100px] mb-[100px] md:flex-row">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className=" flex flex-col w-60">
+                <FormItem className=" flex flex-col w-full sm:w-[600px] md:w-60">
                   <FormLabel className=" text-orange/[.5] text-base">
                     Your name *
                   </FormLabel>
@@ -85,7 +85,7 @@ export const Contact = () => {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className=" flex flex-col w-[450px]">
+                <FormItem className=" flex flex-col w-full sm:w-[600px] md:w-[450px]">
                   <FormLabel className=" text-orange/[.5] text-base">
                     Your email *
                   </FormLabel>
@@ -108,7 +108,7 @@ export const Contact = () => {
               control={form.control}
               name="message"
               render={({ field }) => (
-                <FormItem className=" flex flex-col w-[800px]">
+                <FormItem className=" flex flex-col w-full sm:w-[600px] md:w-[800px]">
                   <FormLabel className=" text-orange/[.5] text-base">
                     Your message *
                   </FormLabel>
