@@ -8,6 +8,16 @@ import {
 } from "@/components/ui/select";
 
 export default function ProjectsPage() {
+  const themes = [
+    "html",
+    "css",
+    "Scss",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Redux",
+    "Angular",
+  ];
   return (
     <main className="flex flex-col items-center p-24 bg-black">
       <div className="text-white">
@@ -16,9 +26,11 @@ export default function ProjectsPage() {
             <SelectValue placeholder="Theme" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="light">Light</SelectItem>
-            <SelectItem value="dark">Dark</SelectItem>
-            <SelectItem value="system">System</SelectItem>
+            {themes.map((docs) => (
+              <SelectItem key={docs} value={docs}>
+                {docs}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
       </div>
