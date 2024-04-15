@@ -19,8 +19,8 @@ export default function ProjectsPage() {
     "Angular",
   ];
   return (
-    <main className="flex flex-col items-center p-24 bg-black">
-      <div className="text-white">
+    <main className="flex flex-col items-center p-24 ">
+      <div className="">
         <Select>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Theme" />

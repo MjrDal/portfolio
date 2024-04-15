@@ -18,7 +18,7 @@ export const Presentation = () => {
             <div className="font-sans ml-2 mr-[130px]">
               <h1 className=" text-white text-5xl"> Julien DALLOZ</h1>
               <p className=" text-white text-3xl">Front-end developer</p>
-              <p className=" text-xl mt-2">
+              <p className=" text-black text-xl mt-2">
                 The web is my playground, and every project is a new adventure
                 to code.
               </p>
@@ -26,7 +26,7 @@ export const Presentation = () => {
           </div>
 
           <div className=" w-full pr-8 pb-5">
-            <Social width="40px" />
+            <Social color="text-white" width="40px" />
           </div>
         </div>
       </div>
