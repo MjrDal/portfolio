@@ -5,3 +5,8 @@ export const ContactSchema = z.object({
   email: z.string().email({ message: "email is requered" }),
   message: z.string().min(2, { message: "message is requered" }),
 });
+
+export const LoginSchema = z.object({
+  email: z.string().email({ message: "email is requered" }),
+  password: z.string().min(2, { message: "message is requered" }),
+});
