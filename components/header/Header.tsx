@@ -5,9 +5,11 @@ import { NavBar } from "./Nav";
 
 export const Header = () => {
   return (
-    <header className="font-sans w-full flex justify-center items-center h-28">
+    <header className="font-sans w-full flex justify-center items-center h-28 relative">
       <NavBar />
-      <DropDownMenu />
+      <div className=" absolute right-4">
+        <DropDownMenu />
+      </div>
     </header>
   );
 };
