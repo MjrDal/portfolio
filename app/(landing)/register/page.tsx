@@ -9,23 +9,22 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { registerSchema } from "@/schemas/index";
+import { RegisterSchema } from "@/schemas/index";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { register } from "@/actions/register";
 import { FormError } from "@/components/messages/form-error";
-import { FormSuccess } from "@/components/messages/form-success";
 import Link from "next/link";
 import { useState, useTransition } from "react";
 
 export default function RegisterPage() {
   const [error, setError] = useState<string | undefined>();
-  const [success, setSuccess] = useState<string | undefined>();
   const [isPending, startTransition] = useTransition();
   // 1. Define your form.
-  const form = useForm<z.infer<typeof registerSchema>>({
-    resolver: zodResolver(registerSchema),
+  const form = useForm<z.infer<typeof RegisterSchema>>({
+    resolver: zodResolver(RegisterSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -34,8 +33,14 @@ export default function RegisterPage() {
 
   // 2. Define a submit handler.
 
-  const onSubmit = (values: z.infer<typeof registerSchema>) => {
+  const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
     console.log(values);
+    setError("");
+    startTransition(() => {
+      register(values).then((data) => {
+        setError(data?.error);
+      });
+    });
   };
 
   return (
@@ -89,13 +94,12 @@ export default function RegisterPage() {
           </div>
           <div className="flex flex-col items-center">
             <FormError message={error} />
-            <FormSuccess message={success} />
             <Button
               disabled={isPending}
               type="submit"
               className="w-[280px] p-8 bg-orange text-white text-3xl"
             >
-              Login
+              Register
             </Button>
           </div>
         </form>
