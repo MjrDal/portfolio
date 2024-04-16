@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
 
 export function DropDownMenu() {
@@ -27,7 +28,9 @@ export function DropDownMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuItem>Log In</DropdownMenuItem>
+        <Link href="/login">
+          <DropdownMenuItem>Log In</DropdownMenuItem>
+        </Link>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuSub>
