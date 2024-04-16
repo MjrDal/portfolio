@@ -40,7 +40,7 @@ export default function RegisterPage() {
 
   return (
     <main className="flex flex-col items-center p-24 ">
-      <h1>Login</h1>
+      <h1>Register</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
           <div className=" flex flex-col justify-center items-center gap-[100px] mb-[100px] ">
@@ -100,7 +100,7 @@ export default function RegisterPage() {
           </div>
         </form>
       </Form>
-      <Link href="/register">Register</Link>
+      <Link href="/login">Login</Link>
     </main>
   );
 }
