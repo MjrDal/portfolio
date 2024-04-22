@@ -14,6 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { login } from "@/actions/login";
 import { FormError } from "@/components/messages/form-error";
 import { FormSuccess } from "@/components/messages/form-success";
 import Link from "next/link";
@@ -36,6 +37,14 @@ export default function LoginPage() {
 
   const onSubmit = (values: z.infer<typeof SignInSchema>) => {
     console.log(values);
+    setError("");
+    setSuccess("");
+    startTransition(() => {
+      login(values).then((data) => {
+        setError(data?.error);
+        setSuccess(data.success);
+      });
+    });
   };
 
   return (
