@@ -26,3 +26,22 @@ export async function POST(name: string, email: string, message: string) {
     return Response.json({ error });
   }
 }
+
+export async function POSTS(name: string, email: string, message: string) {
+  try {
+    const data = await resend.emails.send({
+      from: "Acme <onboarding@resend.dev>",
+      to: ["delivered@resend.dev"],
+      subject: `${name}`,
+      react: EmailTemplate({
+        firstName: `${name}`,
+        email: `${email}`,
+        message: `${message}`,
+      }) as React.ReactElement,
+    });
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
