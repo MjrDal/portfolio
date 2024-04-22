@@ -15,7 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { POSTS } from "@/app/api/send/route";
+import { POST } from "@/app/api/send/route";
 import { useState, useTransition } from "react";
 import { FormError } from "../messages/form-error";
 import { FormSuccess } from "../messages/form-success";
@@ -37,7 +37,7 @@ export const Contact = () => {
   // 2. Define a submit handler.
 
   const onSubmit = (values: z.infer<typeof ContactSchema>) => {
-    POSTS(values.name, values.email, values.message).then((response) => {
+    POST(values.name, values.email, values.message).then((response) => {
       if (response.data) {
         setSuccess("email send!");
         form.reset();
