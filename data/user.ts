@@ -14,8 +14,11 @@ export const getUserFromDb = async (email: string, pwHash: string) => {
   const prisma = new PrismaClient();
   try {
     const user = await prisma.user.findUnique({ where: { email } });
-
-    return user;
+    if (user?.password === pwHash) {
+      return user;
+    } else {
+      return null;
+    }
   } catch {
     return null;
   }
