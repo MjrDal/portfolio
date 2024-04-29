@@ -78,7 +78,20 @@ model Authenticator {
   counter              Int
   credentialDeviceType String
   credentialBackedUp   Boolean
-  transports           String?
+  transports           String? 
  
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Project {
+  id                        String          @id @default(cuid())
+  title                     String
+  litleDescription          String
+  description               String
+  descktopImage             String
+  mobileImage               String?
+  firstTag                  String
+  SecondTag                 String?
+  thirdTag                  String?
+  link                      String
 }
