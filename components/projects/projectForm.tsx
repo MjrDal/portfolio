@@ -62,7 +62,7 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
   };
 
   return (
-    <div className="flex flex-col items-center p-24 box-border border-4 border-orange ">
+    <div className="flex flex-col items-center p-24 box-border border-4 border-orange  rounded-full ">
       <h1>Add new project</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
