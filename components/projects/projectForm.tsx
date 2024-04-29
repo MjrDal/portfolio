@@ -166,7 +166,7 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
                 </FormItem>
               )}
             />
-            <ScrollArea className="h-72 w-48 rounded-md border">
+            <ScrollArea className="h-28 w-48 rounded-md border">
               <FormField
                 control={form.control}
                 name="tag"
