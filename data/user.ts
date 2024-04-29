@@ -1,3 +1,5 @@
+"use server";
+
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
@@ -15,6 +17,8 @@ export const getUserFromDb = async (email: string, password: string) => {
   const prisma = new PrismaClient();
   try {
     const user = await prisma.user.findUnique({ where: { email } });
+    console.log(password, user?.password);
+
     const passwordsMatch = await bcrypt.compare(
       password,
       user?.password as string

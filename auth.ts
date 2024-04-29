@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { getUserFromDb } from "./data/user";
 // Your own logic for dealing with plaintext password strings; be careful!
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -15,16 +16,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         let user = null;
 
         // logic to verify if user exists
-        // user = await getUserFromDb(
-        //   credentials.email as string,
-        //   credentials.password as string
-        // );
+        user = await getUserFromDb(
+          credentials.email as string,
+          credentials.password as string
+        );
 
-        // if (!user) {
-        //   // No user found, so this is their first attempt to login
-        //   // meaning this is also the place you could do registration
-        //   throw new Error("User not found.");
-        // }
+        if (!user) {
+          // No user found, so this is their first attempt to login
+          // meaning this is also the place you could do registration
+          throw new Error("User not found.");
+        }
 
         // return user object with the their profile data
         return user;
