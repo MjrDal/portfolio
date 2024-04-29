@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(name: string, email: string, message: string) {
   try {
-    const { data, error } = await resend.emails.send({
+    const data = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
       to: ["delivered@resend.dev"],
       subject: `${name}`,
@@ -17,12 +17,9 @@ export async function POST(name: string, email: string, message: string) {
         message: `${message}`,
       }) as React.ReactElement,
     });
-    if (error) {
-      return Response.json({ error });
-    }
 
-    return Response.json({ data });
+    return data;
   } catch (error) {
-    return Response.json({ error });
+    throw error;
   }
 }
