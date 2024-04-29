@@ -1,5 +1,5 @@
-import { saltAndHashPassword } from "@/utils/passwrod/password";
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcrypt";
 
 export const getUserByEmail = async (email: string) => {
   const prisma = new PrismaClient();
@@ -15,8 +15,11 @@ export const getUserFromDb = async (email: string, password: string) => {
   const prisma = new PrismaClient();
   try {
     const user = await prisma.user.findUnique({ where: { email } });
-    const pwHash = await saltAndHashPassword(password);
-    if (user?.password === pwHash) {
+    const passwordsMatch = await bcrypt.compare(
+      password,
+      user?.password as string
+    );
+    if (passwordsMatch) {
       return user;
     } else {
       return null;
