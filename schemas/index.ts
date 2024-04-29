@@ -5,3 +5,7 @@ export const ContactSchema = z.object({
   email: z.string().email({ message: "email is requered" }),
   message: z.string().min(2, { message: "message is requered" }),
 });
+
+export const AddProjectSchema = z.object({
+  title: z.string().min(2, { message: "name is requered" }),
+});
