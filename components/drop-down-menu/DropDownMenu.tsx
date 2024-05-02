@@ -1,22 +1,25 @@
+import { signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuItem,
   DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuSub,
-  DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useTheme } from "next-themes";
+import { Session } from "next-auth";
 import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
+import { MenuTheme } from "./MenuTheme";
 
-export function DropDownMenu() {
-  const { setTheme } = useTheme();
+interface Props {
+  session: Session | null;
+}
+
+export function DropDownMenu({ session }: Props) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -28,25 +31,36 @@ export function DropDownMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <Link href="/login">
-          <DropdownMenuItem>Log In</DropdownMenuItem>
-        </Link>
-        <DropdownMenuSeparator />
+        {session ? (
+          <div>
+            <div>{session.user.email}</div>
+            <DropdownMenuSeparator />
+            <div>
+              <form
+                action={async () => {
+                  "use server";
+                  await signOut();
+                }}
+              >
+                <button type="submit">Log out</button>
+              </form>
+            </div>
+            <DropdownMenuSeparator />
+          </div>
+        ) : (
+          <div>
+            <Link href="/login">
+              <button>Log In</button>
+            </Link>
+            <DropdownMenuSeparator />
+          </div>
+        )}
+
         <DropdownMenuGroup>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>Mode</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem onClick={() => setTheme("light")}>
-                  Light
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
-                  Dark
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
-                  System
-                </DropdownMenuItem>
-              </DropdownMenuSubContent>
+              <MenuTheme />
             </DropdownMenuPortal>
           </DropdownMenuSub>
         </DropdownMenuGroup>

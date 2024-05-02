@@ -9,7 +9,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { SignInSchema } from "@/schemas/index";
+import { LoginSchema } from "@/schemas/index";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -25,8 +25,8 @@ export default function LoginPage() {
   const [success, setSuccess] = useState<string | undefined>();
   const [isPending, startTransition] = useTransition();
   // 1. Define your form.
-  const form = useForm<z.infer<typeof SignInSchema>>({
-    resolver: zodResolver(SignInSchema),
+  const form = useForm<z.infer<typeof LoginSchema>>({
+    resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -35,14 +35,13 @@ export default function LoginPage() {
 
   // 2. Define a submit handler.
 
-  const onSubmit = (values: z.infer<typeof SignInSchema>) => {
+  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
     console.log(values);
     setError("");
     setSuccess("");
     startTransition(() => {
       login(values).then((data) => {
         setError(data?.error);
-        setSuccess(data.success);
       });
     });
   };

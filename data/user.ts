@@ -1,33 +1,18 @@
-"use server";
-
-import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcrypt";
+import { db } from "@/lib/db";
 
 export const getUserByEmail = async (email: string) => {
-  const prisma = new PrismaClient();
   try {
-    const user = await prisma.user.findUnique({ where: { email } });
+    const user = await db.user.findUnique({ where: { email } });
     return user;
   } catch {
     return null;
   }
 };
 
-export const getUserFromDb = async (email: string, password: string) => {
-  const prisma = new PrismaClient();
+export const getUserById = async (id: string) => {
   try {
-    const user = await prisma.user.findUnique({ where: { email } });
-    console.log(password, user?.password);
-
-    const passwordsMatch = await bcrypt.compare(
-      password,
-      user?.password as string
-    );
-    if (passwordsMatch) {
-      return user;
-    } else {
-      return null;
-    }
+    const user = await db.user.findUnique({ where: { id } });
+    return user;
   } catch {
     return null;
   }
