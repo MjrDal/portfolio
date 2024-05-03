@@ -1,32 +1,53 @@
+import * as dateFn from "date-fns";
+import { mkdir, stat, writeFile } from "fs/promises";
+import mime from "mime";
 import { NextRequest, NextResponse } from "next/server";
+import { join } from "path";
 
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
+  const file = formData.get("file") as Blob | null;
+  if (!file) {
+    return NextResponse.json(
+      { error: "File blob is required" },
+      { status: 400 }
+    );
+  }
 
-  // Remember to enforce type here and after use some lib like zod.js to check it
-  const files = formData.getAll("files") as File[];
+  const buffer = Buffer.from(await file.arrayBuffer());
+  const relativeUploadDir = `/uploads/${dateFn.format(Date.now(), "dd-MM-Y")}`;
+  const uploadDir = join(process.cwd(), "public", relativeUploadDir);
 
-  // Thats it, you have your files
-  console.log(files, "est ce que c'est ce console");
-  /*
-      returns [
-        {
-          name: 'test.jpg',
-          type: 'image/jpg',
-          size: 1024,
-          ...other file props
-        }
-      ]
-    */
+  try {
+    await stat(uploadDir);
+  } catch (e: any) {
+    if (e.code === "ENOENT") {
+      await mkdir(uploadDir, { recursive: true });
+    } else {
+      console.error(
+        "Error while trying to create directory when uploading a file\n",
+        e
+      );
+      return NextResponse.json(
+        { error: "Something went wrong." },
+        { status: 500 }
+      );
+    }
+  }
 
-  const fileToStorage = files[0];
-
-  // supose you have your Supabase client initialized previously
-  // await supabase.storage.from(this.bucketName).upload(
-  //   `/some/path/${fileToStorage.name}`,
-  //   fileToStorage,
-  //   { contentType: fileToStorage.type } // Optional
-  // );
-
-  return NextResponse.json({ message: "Files Created" });
+  try {
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    const filename = `${file.name.replace(
+      /\.[^/.]+$/,
+      ""
+    )}-${uniqueSuffix}.${mime.getExtension(file.type)}`;
+    await writeFile(`${uploadDir}/${filename}`, buffer);
+    return NextResponse.json({ fileUrl: `${relativeUploadDir}/${filename}` });
+  } catch (e) {
+    console.error("Error while trying to upload a file\n", e);
+    return NextResponse.json(
+      { error: "Something went wrong." },
+      { status: 500 }
+    );
+  }
 }

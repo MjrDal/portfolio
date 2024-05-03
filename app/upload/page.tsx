@@ -1,36 +1,63 @@
 "use client";
-
-import { SubmitHandler, useForm } from "react-hook-form";
-
-type FormValues = {
-  files: string;
-};
+import Image from "next/image";
+import { useRef, useState } from "react";
 
 export default function Upload() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<FormValues>();
+  const [imageUrl, setImageUrl] = useState("/image/placeholder-image.jpg");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const handleFormSubmit = async (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+    const fileInput = fileInputRef.current;
 
-  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    if (!fileInput?.files) {
+      console.warn("no file was chosen");
+      return;
+    }
+
+    if (!fileInput?.files || fileInput.files.length === 0) {
+      console.warn("file list is empty");
+      return;
+    }
+
+    const file = fileInput.files[0];
+    console.log(file);
+
     const formData = new FormData();
-    formData.append("files", data.files);
-    console.log(data.files, "le consol log de data");
+    formData.append("file", file);
 
-    await fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
 
-    reset();
+      if (!res.ok) {
+        console.error("something went wrong");
+        return;
+      }
+
+      const data: { fileUrl: string } = await res.json();
+      setImageUrl(data.fileUrl);
+    } catch (error) {
+      console.error("something went wrong");
+    }
+
+    // Réinitialise l'input file après l'envoi
+    if (fileInput) {
+      fileInput.value = ""; // Efface le fichier sélectionné
+    }
   };
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="file" multiple={true} />
-      <button>submit</button>
+    <form onSubmit={handleFormSubmit}>
+      <Image
+        src={imageUrl}
+        alt="upload image"
+        width={720}
+        height={446}
+        priority={true}
+      />
+      <input type="file" ref={fileInputRef} name="file" onChange={(e) => {}} />
+      <button type="submit">Upload</button>
     </form>
   );
 }
