@@ -38,6 +38,11 @@ export default function Upload() {
       return;
     }
 
+    if (!fileInput2?.files) {
+      console.warn("no file was chosen");
+      return;
+    }
+
     if (!fileInput1?.files || fileInput1.files.length === 0) {
       console.warn("file list is empty");
       return;
@@ -57,7 +62,7 @@ export default function Upload() {
       sendImage(formData1);
     }
 
-    if (fileInput2?.files === undefined) {
+    if (fileInput2?.files !== undefined) {
       sendImage(formData2);
     }
 

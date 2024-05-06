@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    const filename = `${file.name.replace(
+    const filename = `${(file as File).name.replace(
       /\.[^/.]+$/,
       ""
     )}-${uniqueSuffix}.${mime.getExtension(file.type)}`;
