@@ -35,6 +35,15 @@ export function DropDownMenu({ session }: Props) {
           <div>
             <div>{session.user.email}</div>
             <DropdownMenuSeparator />
+            {session.user.role === "ADMIN" ? (
+              <div>
+                <Link href="/addProject">
+                  <button>Ajouter un projet</button>
+                </Link>
+                <DropdownMenuSeparator />
+              </div>
+            ) : null}
+
             <div>
               <form
                 action={async () => {

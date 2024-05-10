@@ -82,3 +82,20 @@ model Authenticator {
  
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model Project {
+  id                        String          @id @default(cuid())
+  title                     String
+  litleDescription          String
+  description               String
+  descktopImage             String
+  mobileImage               String?
+  link                      String
+  tag                       Tags[]
+}
+
+model Tags {
+  id                        String          @id @default(cuid())
+  tag                       String
+  project                   Project[]
+}
