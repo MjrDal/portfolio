@@ -11,6 +11,13 @@ enum UserRole {
   ADMIN
   USER
 }
+
+enum ProjectRole {
+  NO
+  FIRST
+  SECOND
+  THIRD
+}
  
 model User {
   id            String          @id @default(cuid())
@@ -58,6 +65,7 @@ model Session {
  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  
 }
  
 model VerificationToken {
@@ -90,8 +98,9 @@ model Project {
   description               String
   descktopImage             String
   mobileImage               String?
-  link                      String
+  link                      String 
   tag                       Tags[]
+  project                   ProjectRole     @default(NO)
 }
 
 model Tags {

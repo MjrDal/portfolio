@@ -5,7 +5,7 @@
  */
 export const publicRoutes = [
   "/home",
-  "/project",
+  "/projects",
   "/login",
   "/register",
   "/addProject",
