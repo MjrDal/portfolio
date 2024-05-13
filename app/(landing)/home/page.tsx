@@ -13,10 +13,12 @@ export default async function HomePage() {
   const session = await auth();
   const projects = await prisma.project.findMany();
 
+  // constante ou je place mes projet à afficher
   const firstProject = await getProjectByNumber(ProjectRole.FIRST);
   const secondProject = await getProjectByNumber(ProjectRole.SECOND);
   const thirdProject = await getProjectByNumber(ProjectRole.THIRD);
 
+  // Controle que j'ai bien des projets
   if (!firstProject || !secondProject || !thirdProject) {
     return null;
   }
