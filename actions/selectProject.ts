@@ -1,6 +1,7 @@
 "use server";
 
 import { db } from "@/lib/db";
+import { ProjectRole } from "@prisma/client";
 
 export const updateLastId = async (values: string) => {
   if (!values) {
@@ -16,10 +17,11 @@ export const updateLastId = async (values: string) => {
   return { success: "project deleted" };
 };
 
-export const updateNewId = async (values: string, number: any) => {
+export const updateNewId = async (values: string, number: ProjectRole) => {
   if (!values) {
     return { error: "Invalid fields!" };
   }
+  console.log(number);
 
   await db.project.update({
     where: {
