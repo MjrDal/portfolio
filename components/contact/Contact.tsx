@@ -48,7 +48,7 @@ export const Contact = () => {
   };
 
   return (
-    <div className="font-sans w-full mt-4 mb-8">
+    <div id="Contact" className="font-sans w-full mt-4 mb-8">
       <div className="flex flex-col items-center">
         <h2 className="text-5xl   mb-2 pt-14">Contact</h2>
         <div className=" h-[15px] relative mb-6 ">

@@ -45,66 +45,68 @@ export default function RegisterPage() {
 
   return (
     <main className="flex flex-col items-center p-24 ">
-      <h1>Register</h1>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
-          <div className=" flex flex-col justify-center items-center gap-[100px] mb-[100px] ">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className=" flex flex-col w-full sm:w-[600px] md:w-60">
-                  <FormLabel className=" text-orange/[.5] text-base">
-                    email *
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="Enter your email"
-                      type="email"
-                      className="  box-border border-b-4 border-orange/[.25] text-base text-white"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem className=" flex flex-col w-full sm:w-[600px] md:w-[450px]">
-                  <FormLabel className=" text-orange/[.5] text-base">
-                    Password *
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="Enter your password"
-                      type="password"
-                      className="  box-border border-b-4 border-orange/[.25] text-base text-white"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className="flex flex-col items-center">
-            <FormError message={error} />
-            <Button
-              disabled={isPending}
-              type="submit"
-              className="w-[280px] p-8 bg-orange text-white text-3xl"
-            >
-              Register
-            </Button>
-          </div>
-        </form>
-      </Form>
-      <Link href="/login">Login</Link>
+      <div className=" flex flex-col items-center border-4 border-orange p-6 rounded-2xl">
+        <h1>Register</h1>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
+            <div className=" flex flex-col justify-center items-center gap-[100px] mb-[100px] ">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem className=" flex flex-col w-full">
+                    <FormLabel className=" text-orange/[.5] text-base">
+                      email *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        placeholder="Enter your email"
+                        type="email"
+                        className="  box-border border-b-4 border-orange/[.25] text-base text-white"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem className=" flex flex-col w-full">
+                    <FormLabel className=" text-orange/[.5] text-base">
+                      Password *
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        placeholder="Enter your password"
+                        type="password"
+                        className="  box-border border-b-4 border-orange/[.25] text-base text-white"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="flex flex-col items-center">
+              <FormError message={error} />
+              <Button
+                disabled={isPending}
+                type="submit"
+                className="w-[280px] p-8 bg-orange text-white text-3xl"
+              >
+                Register
+              </Button>
+            </div>
+          </form>
+        </Form>
+        <Link href="/login">Login</Link>
+      </div>
     </main>
   );
 }

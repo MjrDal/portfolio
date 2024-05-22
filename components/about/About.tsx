@@ -4,7 +4,7 @@ import { Title } from "../title/Title";
 
 export const About = () => {
   return (
-    <div className="font-sans mt-4 mb-[180px]">
+    <div id="about" className="font-sans mt-4 mb-[180px]">
       <Title title="About me" />
       <div className=" flex flex-col md:flex-row items-center pt-6 px-10 gap-32">
         <p className="text-white text-xl">

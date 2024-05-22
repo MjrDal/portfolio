@@ -78,8 +78,8 @@ export const HoverEffect: React.FC<Props> = (
 
             <DialogTrigger asChild>
               <div>
-                <Card className=" bg-gray m-0 p-0">
-                  <CardHeader className=" m-0 p-0 h-[190px] overflow-hidden bg-orange">
+                <Card className=" bg-gray m-0 p-0 h-[420px]">
+                  <CardHeader className=" m-0 p-0 h-[190px] overflow-hidden">
                     <Image
                       src={`/uploads/${item.descktopImage}`}
                       width={400}

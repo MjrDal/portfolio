@@ -40,7 +40,7 @@ export const Projects: React.FC<Props> = ({
   return (
     <div className="font-sans mt-4 mb-14">
       <Title title="My projects" />
-      <div className="flex flex-col mt-[80px]">
+      <div className="flex flex-col mt-[80px] md:grid md:grid-cols-2 xl:grid-cols-3">
         <div>
           <CardHome
             titleLink="See code"
