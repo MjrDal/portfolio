@@ -10,8 +10,8 @@ export const Header = async () => {
       <div className=" absolute right-4">
         <DropDownMenu session={session} />
       </div>
-      {session ? <div>session</div> : <div>pas de sesssion</div>}
-      {JSON.stringify(session?.user.role)}
+      {/* {session ? <div>session</div> : <div>pas de sesssion</div>}
+      {JSON.stringify(session?.user.role)} */}
     </header>
   );
 };

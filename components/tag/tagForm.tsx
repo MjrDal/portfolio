@@ -47,7 +47,7 @@ export default function TagForm() {
   };
 
   return (
-    <div className="flex flex-col items-center p-6 box-border border-4 border-orange ">
+    <div className="flex flex-col items-center p-6 box-border border-4 border-orange rounded-2xl ">
       <h1>Add new tag</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className=" ">

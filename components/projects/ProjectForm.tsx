@@ -3,6 +3,7 @@ import { projectAction } from "@/actions/project";
 import { AddProjectSchema } from "@/schemas";
 import { useRouter } from "next/navigation";
 import { useRef, useState, useTransition } from "react";
+import { Button } from "../ui/button";
 import { ScrollArea } from "../ui/scroll-area";
 
 interface Props {
@@ -119,31 +120,55 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
   };
 
   return (
-    <div className="flex flex-col items-center p-6 box-border border-4 border-orange ">
+    <div className="flex flex-col items-center p-6 box-border border-4 border-orange rounded-2xl ">
       <h1>Add new project</h1>
       <form
         ref={formRef}
         onSubmit={handleFormSubmit}
         className=" flex flex-col"
       >
-        <label htmlFor="">Title *</label>
-        <input type="text" ref={addInputs} name="title" id="title" />
-        <label htmlFor="">Litle description *</label>
+        <label className=" text-orange/[.5] text-base" htmlFor="">
+          Title *
+        </label>
+        <input
+          type="text"
+          ref={addInputs}
+          name="title"
+          id="title"
+          className="  box-border border-b-4 border-orange/[.25] text-base text-white"
+        />
+        <label className=" text-orange/[.5] text-base" htmlFor="">
+          Litle description *
+        </label>
         <input
           type="text"
           ref={addInputs}
           name="litleDescription"
           id="description"
+          className="  box-border border-b-4 border-orange/[.25] text-base text-white"
         />
-        <label htmlFor="">Description *</label>
+        <label className=" text-orange/[.5] text-base" htmlFor="">
+          Description *
+        </label>
         <textarea
           name="description"
           ref={addInputs}
           id="bigDescrieption"
+          className="  box-border border-b-4 border-orange/[.25] text-base text-white"
         ></textarea>
-        <label htmlFor="">Link *</label>
-        <input type="text" ref={addInputs} name="link" id="link" />
-        <label htmlFor="">Tag *</label>
+        <label className=" text-orange/[.5] text-base" htmlFor="">
+          Link *
+        </label>
+        <input
+          type="text"
+          ref={addInputs}
+          name="link"
+          id="link"
+          className="  box-border border-b-4 border-orange/[.25] text-base text-white"
+        />
+        <label className=" text-orange/[.5] text-base" htmlFor="">
+          Tag *
+        </label>
         <ScrollArea className=" h-20 w-full rounded-md border">
           {tag.map((docs) => (
             <div key={docs.id}>
@@ -160,7 +185,9 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
             </div>
           ))}
         </ScrollArea>
-        <label htmlFor="">Descktop image *</label>
+        <label className=" text-orange/[.5] text-base" htmlFor="">
+          Descktop image *
+        </label>
         <input
           type="file"
           ref={fileInputRef1}
@@ -168,7 +195,9 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
           id="file"
           onChange={(e) => {}}
         />
-        <label htmlFor="">mobile image</label>
+        <label className=" text-orange/[.5] text-base" htmlFor="">
+          mobile image
+        </label>
         <input
           type="file"
           ref={fileInputRef2}
@@ -176,196 +205,13 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
           id="file"
           onChange={(e) => {}}
         />
-        <button type="submit">Add project</button>
+        <Button
+          type="submit"
+          className="w-[280px] mt-4 p-8 bg-orange text-white text-3xl"
+        >
+          Add project
+        </Button>
       </form>
-      {/* <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
-          <div className=" flex flex-col justify-center items-center gap-[100px] mb-[100px] ">
-            <FormField
-              control={form.control}
-              name="title"
-              render={({ field }) => (
-                <FormItem className=" flex flex-col w-full sm:w-[600px] md:w-60">
-                  <FormLabel className=" text-orange/[.5] text-base">
-                    Title *
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="Enter your title"
-                      type="text"
-                      className="  box-border border-b-4 border-orange/[.25] text-base text-white"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="litleDescription"
-              render={({ field }) => (
-                <FormItem className=" flex flex-col w-full sm:w-[600px] md:w-60">
-                  <FormLabel className=" text-orange/[.5] text-base">
-                    Description *
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="Enter your description"
-                      type="text"
-                      className="  box-border border-b-4 border-orange/[.25] text-base text-white"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className=" text-orange/[.5] text-base">
-                    Description *
-                  </FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Enter your description"
-                      className="resize-none"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="descktopImage"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Image *</FormLabel>
-                  <FormControl>
-                    <Input
-                      id="picture"
-                      type="file"
-                      ref={fileInputRef1}
-                      onChange={(e) => {}}
-                      {...field}
-                      disabled={isPending}
-                    />
-                  </FormControl>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="mobileImage"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Image</FormLabel>
-                  <FormControl>
-                    <Input
-                      id="picture"
-                      type="file"
-                      ref={fileInputRef2}
-                      onChange={(e) => {}}
-                      {...field}
-                      disabled={isPending}
-                    />
-                  </FormControl>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <ScrollArea className="h-28 w-48 rounded-md border">
-              <FormField
-                control={form.control}
-                name="tag"
-                render={() => (
-                  <FormItem>
-                    {tag.map((item) => (
-                      <FormField
-                        key={item.id}
-                        control={form.control}
-                        name="tag"
-                        render={({ field }) => {
-                          return (
-                            <FormItem
-                              key={item.id}
-                              className="flex flex-row items-start space-x-3 space-y-0"
-                            >
-                              <FormControl>
-                                <Checkbox
-                                  checked={field.value?.includes(item.id)}
-                                  onCheckedChange={(checked: string) => {
-                                    return checked
-                                      ? field.onChange([
-                                          ...field.value,
-                                          item.id,
-                                        ])
-                                      : field.onChange(
-                                          field.value?.filter(
-                                            (value) => value !== item.id
-                                          )
-                                        );
-                                  }}
-                                />
-                              </FormControl>
-                              <FormLabel className="text-sm font-normal">
-                                {item.tag}
-                              </FormLabel>
-                            </FormItem>
-                          );
-                        }}
-                      />
-                    ))}
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </ScrollArea>
-            <FormField
-              control={form.control}
-              name="link"
-              render={({ field }) => (
-                <FormItem className=" flex flex-col w-full sm:w-[600px] md:w-60">
-                  <FormLabel className=" text-orange/[.5] text-base">
-                    Link *
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="Enter your description"
-                      type="text"
-                      className="  box-border border-b-4 border-orange/[.25] text-base text-white"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <div className="flex flex-col items-center">
-            <FormError message={error} />
-            <FormSuccess message={success} />
-            <Button
-              disabled={isPending}
-              type="submit"
-              className="w-[280px] p-8 bg-orange text-white text-3xl"
-            >
-              Add project
-            </Button>
-          </div>
-        </form>
-      </Form> */}
     </div>
   );
 };
