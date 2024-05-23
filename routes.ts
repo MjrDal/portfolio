@@ -8,7 +8,7 @@ export const publicRoutes = [
   "/projects",
   "/login",
   "/register",
-  "/addProject",
+
   "/api/upload",
 ];
 

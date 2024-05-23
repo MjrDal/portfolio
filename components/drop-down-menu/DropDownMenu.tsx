@@ -58,10 +58,42 @@ export function DropDownMenu({ session }: Props) {
           </div>
         ) : (
           <div>
-            <Link href="/login">
-              <button>Log In</button>
-            </Link>
-            <DropdownMenuSeparator />
+            <div className=" md:hidden">
+              <Link href="/home">
+                <button>Home</button>
+              </Link>
+              <DropdownMenuSeparator />
+            </div>
+            <div className=" md:hidden">
+              <Link href="#About">
+                <button>About me</button>
+              </Link>
+              <DropdownMenuSeparator />
+            </div>
+            <div className=" md:hidden">
+              <Link href="/projects">
+                <button>My project</button>
+              </Link>
+              <DropdownMenuSeparator />
+            </div>
+            <div className=" md:hidden">
+              <Link href="#Skills">
+                <button>My skills</button>
+              </Link>
+              <DropdownMenuSeparator />
+            </div>
+            <div className=" md:hidden">
+              <Link href="#Contact">
+                <button>Contact</button>
+              </Link>
+              <DropdownMenuSeparator />
+            </div>
+            <div>
+              <Link href="/login">
+                <button>Log In</button>
+              </Link>
+              <DropdownMenuSeparator />
+            </div>
           </div>
         )}
 
