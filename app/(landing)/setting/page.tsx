@@ -5,6 +5,7 @@ import { PrismaClient } from "@prisma/client";
 
 export default async function HomePage() {
   const prisma = new PrismaClient();
+  const users = await prisma.user.findMany();
   const session = await auth();
 
   return (
@@ -12,7 +13,7 @@ export default async function HomePage() {
       <ChangePassordForm />
       {session?.user.role === "ADMIN" ? (
         <div>
-          <TableUsers />
+          <TableUsers users={users} />
         </div>
       ) : null}
     </main>

@@ -16,7 +16,6 @@ import { z } from "zod";
 
 import { register } from "@/actions/register";
 import { FormError } from "@/components/messages/form-error";
-import Link from "next/link";
 import { useState, useTransition } from "react";
 
 export default function ChangePassordForm() {
@@ -46,7 +45,7 @@ export default function ChangePassordForm() {
   return (
     <main className="flex flex-col items-center p-24 ">
       <div className=" flex flex-col items-center border-4 border-orange p-6 rounded-2xl">
-        <h1>Register</h1>
+        <h2>Change password</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className=" ">
             <div className=" flex flex-col justify-center items-center gap-[100px] mb-[100px] ">
@@ -121,12 +120,11 @@ export default function ChangePassordForm() {
                 type="submit"
                 className="w-[280px] p-8 bg-orange text-white text-3xl"
               >
-                Register
+                Change password
               </Button>
             </div>
           </form>
         </Form>
-        <Link href="/login">Change</Link>
       </div>
     </main>
   );

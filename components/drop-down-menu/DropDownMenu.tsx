@@ -33,7 +33,9 @@ export function DropDownMenu({ session }: Props) {
       <DropdownMenuContent className="w-56">
         {session ? (
           <div>
-            <div>{session.user.email}</div>
+            <Link href="/setting">
+              <div>{session.user.email}</div>
+            </Link>
             <DropdownMenuSeparator />
             {session.user.role === "ADMIN" ? (
               <div>
