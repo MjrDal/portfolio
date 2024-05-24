@@ -1,4 +1,5 @@
 "use client";
+import { FormSuccess } from "@/components/messages/form-success";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -9,35 +10,42 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { RegisterSchema } from "@/schemas/index";
+import { ChangePasswordSchema } from "@/schemas/index";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { register } from "@/actions/register";
+import { changePassword } from "@/actions/changePassword";
 import { FormError } from "@/components/messages/form-error";
 import { useState, useTransition } from "react";
 
 export default function ChangePassordForm() {
   const [error, setError] = useState<string | undefined>();
+  const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
   // 1. Define your form.
-  const form = useForm<z.infer<typeof RegisterSchema>>({
-    resolver: zodResolver(RegisterSchema),
+  const form = useForm<z.infer<typeof ChangePasswordSchema>>({
+    resolver: zodResolver(ChangePasswordSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      lastPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
     },
   });
 
   // 2. Define a submit handler.
 
-  const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
-    console.log(values);
+  const onSubmit = (values: z.infer<typeof ChangePasswordSchema>) => {
     setError("");
+    setSuccess("");
+    if (values.newPassword != values.confirmNewPassword) {
+      setError("passwords are not the same");
+    }
+
     startTransition(() => {
-      register(values).then((data) => {
+      changePassword(values).then((data) => {
         setError(data?.error);
+        setSuccess(data?.success);
       });
     });
   };
@@ -51,7 +59,7 @@ export default function ChangePassordForm() {
             <div className=" flex flex-col justify-center items-center gap-[100px] mb-[100px] ">
               <FormField
                 control={form.control}
-                name="password"
+                name="lastPassword"
                 render={({ field }) => (
                   <FormItem className=" flex flex-col w-full">
                     <FormLabel className=" text-orange/[.5] text-base">
@@ -72,7 +80,7 @@ export default function ChangePassordForm() {
               />
               <FormField
                 control={form.control}
-                name="password"
+                name="newPassword"
                 render={({ field }) => (
                   <FormItem className=" flex flex-col w-full">
                     <FormLabel className=" text-orange/[.5] text-base">
@@ -93,7 +101,7 @@ export default function ChangePassordForm() {
               />
               <FormField
                 control={form.control}
-                name="password"
+                name="confirmNewPassword"
                 render={({ field }) => (
                   <FormItem className=" flex flex-col w-full">
                     <FormLabel className=" text-orange/[.5] text-base">
@@ -115,6 +123,7 @@ export default function ChangePassordForm() {
             </div>
             <div className="flex flex-col items-center">
               <FormError message={error} />
+              <FormSuccess message={success} />
               <Button
                 disabled={isPending}
                 type="submit"

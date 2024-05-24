@@ -16,6 +16,16 @@ export const RegisterSchema = z.object({
   password: z.string().min(6, { message: "Minimum 6 characters requiered" }),
 });
 
+export const ChangePasswordSchema = z.object({
+  lastPassword: z
+    .string()
+    .min(6, { message: "Minimum 6 characters requiered" }),
+  newPassword: z.string().min(6, { message: "Minimum 6 characters requiered" }),
+  confirmNewPassword: z
+    .string()
+    .min(6, { message: "Minimum 6 characters requiered" }),
+});
+
 export const AddProjectSchema = z.object({
   title: z.string().min(2, { message: "title is requered" }),
   litleDescription: z.string().min(2, { message: "title is requered" }),
