@@ -1,41 +1,21 @@
+import { auth } from "@/auth";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { PrismaClient } from "@prisma/client";
 
-export default function ProjectsPage() {
-  const themes = [
-    "html",
-    "css",
-    "Scss",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Redux",
-    "Angular",
-  ];
+export default async function ProjectsPage() {
+  const prisma = new PrismaClient();
+  const session = await auth();
+  const tags = await prisma.tags.findMany();
+  const project = await prisma.project.findMany({ include: { tag: true } });
+
   return (
-    <main className="flex flex-col items-center p-24 bg-black">
-      <div className="text-white">
-        <Select>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Theme" />
-          </SelectTrigger>
-          <SelectContent>
-            {themes.map((docs) => (
-              <SelectItem key={docs} value={docs}>
-                {docs}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
+    <main className="flex flex-col items-center p-24 ">
       <div className="max-w-5xl mx-auto px-8">
-        <HoverEffect className=" text-white" />
+        <HoverEffect
+          project={project}
+          session={session}
+          className=" text-white"
+        />
       </div>
     </main>
   );

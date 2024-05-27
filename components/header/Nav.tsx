@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export const NavBar = () => {
   return (
-    <nav className=" flex">
-      <ul className=" flex flex-row items-center px-10 box-border border-4 border-orange text-white rounded-full h-24 gap-10 text-2xl">
+    <nav className="  hidden md:flex">
+      <ul className=" flex flex-row items-center px-10 box-border border-4 border-orange  rounded-full h-24 gap-10 text-2xl">
         <Link href="/home">
           <li>Home</li>
         </Link>

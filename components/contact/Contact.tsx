@@ -37,23 +37,27 @@ export const Contact = () => {
   // 2. Define a submit handler.
 
   const onSubmit = (values: z.infer<typeof ContactSchema>) => {
-    console.log(values);
-    POST(values.name, values.email, values.message);
+    POST(values.name, values.email, values.message).then((response) => {
+      if (response.data) {
+        setSuccess("email send!");
+        form.reset();
+      } else {
+        setError("email not send");
+      }
+    });
   };
 
   return (
-    <div className="font-sans w-full mt-4 mb-8">
+    <div id="Contact" className="font-sans w-full mt-4 mb-8">
       <div className="flex flex-col items-center">
-        <h2 className="text-5xl  text-white mb-2 pt-14">Contact</h2>
+        <h2 className="text-5xl   mb-2 pt-14">Contact</h2>
         <div className=" h-[15px] relative mb-6 ">
           <div className="w-[15px] h-[15px] absolute bottom-1 right-0 rounded-full bg-orange"></div>
           <div className="w-[15px] h-[15px] absolute bottom-1 rounded-full bg-orange"></div>
           <div className=" w-60 h-1.5 mx-1 bg-orange"></div>
         </div>
-        <p className="text-white text-xl mb-6">
-          I would be happy to answer you
-        </p>
-        <p className="text-white text-4xl box-border border-4 border-orange rounded-tr-xl rounded-bl-xl mb-20 p-6">
+        <p className=" text-xl mb-6">I would be happy to answer you</p>
+        <p className=" text-4xl box-border border-4 border-orange rounded-tr-xl rounded-bl-xl mb-20 p-6">
           Send me a message
         </p>
       </div>
@@ -74,7 +78,7 @@ export const Contact = () => {
                       disabled={isPending}
                       placeholder="Enter your name"
                       type="text"
-                      className=" bg-black box-border border-b-4 border-orange/[.25] text-base text-white"
+                      className="  box-border border-b-4 border-orange/[.25] text-base text-white"
                     />
                   </FormControl>
                   <FormMessage />
@@ -95,7 +99,7 @@ export const Contact = () => {
                       disabled={isPending}
                       placeholder="Enter your email"
                       type="email"
-                      className=" bg-black box-border border-b-4 border-orange/[.25] text-base text-white"
+                      className="  box-border border-b-4 border-orange/[.25] text-base text-white"
                     />
                   </FormControl>
                   <FormMessage />
@@ -117,7 +121,7 @@ export const Contact = () => {
                       {...field}
                       disabled={isPending}
                       placeholder="Enter your message"
-                      className=" bg-black box-border border-b-4 border-orange/[.25] text-base text-white"
+                      className="  box-border border-b-4 border-orange/[.25] text-base text-white"
                     />
                   </FormControl>
                   <FormMessage />

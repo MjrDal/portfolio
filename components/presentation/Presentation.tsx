@@ -12,21 +12,21 @@ export const Presentation = () => {
         <div className=" h-11 bg-gray rounded-t-lg">
           <Dot />
         </div>
-        <div className=" flex flex-col  place-content-between">
+        <div className=" flex flex-col xl:h-80 xl:relative ">
           <div className="flex flex-row pl-8 pt-6">
             <p className=" text-white text-5xl ">{spec}</p>
             <div className="font-sans ml-2 mr-[130px]">
               <h1 className=" text-white text-5xl"> Julien DALLOZ</h1>
               <p className=" text-white text-3xl">Front-end developer</p>
-              <p className=" text-xl mt-2">
+              <p className=" text-black text-xl mt-2">
                 The web is my playground, and every project is a new adventure
                 to code.
               </p>
             </div>
           </div>
 
-          <div className=" w-full pr-8 pb-5">
-            <Social width="40px" />
+          <div className=" w-full pr-8 pb-5 xl:absolute xl:bottom-0">
+            <Social color="text-white" width="40px" />
           </div>
         </div>
       </div>
