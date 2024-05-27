@@ -2,14 +2,7 @@ import { ProjectForm } from "@/components/projects/ProjectForm";
 import TagForm from "@/components/tag/tagForm";
 import { PrismaClient } from "@prisma/client";
 
-interface Props {
-  tag: {
-    id: string;
-    tag: string;
-  }[];
-}
-
-const FormPage: React.FC<Props> = async () => {
+const FormPage = async () => {
   const prisma = new PrismaClient();
   const tag = await prisma.tags.findMany();
   return (
