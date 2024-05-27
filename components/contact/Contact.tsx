@@ -38,7 +38,7 @@ export const Contact = () => {
 
   const onSubmit = (values: z.infer<typeof ContactSchema>) => {
     POST(values.name, values.email, values.message).then((response) => {
-      if (response.data) {
+      if (response.status === 200) {
         setSuccess("email send!");
         form.reset();
       } else {
