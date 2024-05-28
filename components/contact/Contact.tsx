@@ -15,7 +15,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { POST } from "@/app/api/send/route";
 import { useState, useTransition } from "react";
 import { FormError } from "../messages/form-error";
 import { FormSuccess } from "../messages/form-success";
@@ -36,15 +35,32 @@ export const Contact = () => {
 
   // 2. Define a submit handler.
 
-  const onSubmit = (values: z.infer<typeof ContactSchema>) => {
-    POST(values.name, values.email, values.message).then((response) => {
-      if (response.status === 200) {
+  const onSubmit = async (values: z.infer<typeof ContactSchema>) => {
+    const data = {
+      email: values.email,
+      userFirstname: values.name,
+      message: values.message,
+    };
+
+    try {
+      const response = await fetch("http://localhost:8090/api/mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      if (result) {
         setSuccess("email send!");
-        form.reset();
       } else {
         setError("email not send");
       }
-    });
+      console.log(result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

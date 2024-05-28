@@ -1,54 +1,26 @@
-import {
-  Body,
-  Button,
-  Container,
-  Head,
-  Hr,
-  Html,
-  Img,
-  Preview,
-  Section,
-  Text,
-} from "@react-email/components";
+import { Body, Container, Head, Html, Text } from "@react-email/components";
 
 interface KoalaWelcomeEmailProps {
   userFirstname: string;
+  email: string;
+  message: string;
 }
 
 export const KoalaWelcomeEmail = ({
-  userFirstname = "Zeno",
+  email,
+  userFirstname,
+  message,
 }: KoalaWelcomeEmailProps) => (
   <Html>
     <Head />
-    <Preview>
-      The sales intelligence platform that helps you uncover qualified leads.
-    </Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img
-          src={`https://yt3.ggpht.com/ytc/AIf8zZSm4qVj84gHNLa0CnX6DUrOjUci_wsmo9VbAX1j=s88-c-k-c0x00ffffff-no-rj`}
-          width="50"
-          height="50"
-          alt="Koala"
-          style={logo}
-        />
-        <Text style={paragraph}>Hi {userFirstname},</Text>
+        <Text style={paragraph}>Hi Julien,</Text>
         <Text style={paragraph}>
-          Welcome to Daily Web Coding, the sales intelligence platform that
-          helps you uncover qualified leads and close deals faster.
+          Vous avez recut un message de la part de {userFirstname},
         </Text>
-        <Section style={btnContainer}>
-          <Button style={button} href="https://getkoala.com">
-            Get started
-          </Button>
-        </Section>
-        <Text style={paragraph}>
-          Best,
-          <br />
-          The Daily Web Coding
-        </Text>
-        <Hr style={hr} />
-        <Text style={footer}>408 Warren Rd - San Mateo, CA 94402</Text>
+        <Text style={paragraph}>voici sont adresse mail : {email}</Text>
+        <Text style={paragraph}>voici sont message : {message}</Text>
       </Container>
     </Body>
   </Html>
