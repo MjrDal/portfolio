@@ -54,6 +54,7 @@ export const Contact = () => {
       const result = await response.json();
       if (result) {
         setSuccess("email send!");
+        form.reset();
       } else {
         setError("email not send");
       }
