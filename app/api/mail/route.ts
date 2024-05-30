@@ -12,8 +12,8 @@ export async function POST(request: Request, res: Response) {
 
   const { data, error } = await resend.emails.send({
     from: "Acme <onboarding@resend.dev>",
-    to: [email],
-    subject: "Thank you",
+    to: ["mjrdal.39@gmail.com"],
+    subject: "Vous avez recut un message",
     html: render(WelcomeTemplate({ email, userFirstname, message })),
   });
 
