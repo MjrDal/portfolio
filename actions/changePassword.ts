@@ -10,12 +10,23 @@ import { z } from "zod";
 export const changePassword = async (
   values: z.infer<typeof ChangePasswordSchema>
 ) => {
-  console.log(values);
   const session = await auth();
   const prisma = new PrismaClient();
+
+  // Vérifiez si l'utilisateur est authentifié
+  if (!session?.user.id) {
+    return { error: "User not authenticated!" };
+  }
+
   const user = await prisma.user.findUnique({
     where: { id: session?.user.id },
   });
+
+  // Vérifiez si l'utilisateur existe
+  if (!user || !user.password) {
+    return { error: "User not found or password not set!" };
+  }
+
   const validateFields = ChangePasswordSchema.safeParse(values);
 
   if (!validateFields.success) {
@@ -39,7 +50,3 @@ export const changePassword = async (
     return { error: "password not change" };
   }
 };
-
-// azerty
-// // ytreza
-// $2a$10$X4WGitTnC90CywQIL.TBn.FKCSVlogSu5CN65Lg9LoVkZlcD/ayLS
