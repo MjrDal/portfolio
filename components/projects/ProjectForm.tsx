@@ -16,17 +16,17 @@ interface Props {
 export const ProjectForm: React.FC<Props> = ({ tag }) => {
   const [isPending, startTransition] = useTransition();
   const [imageUrl, setImageUrl] = useState("/image/placeholder-image.jpg");
-  const [selectedThemes, setSelectedThemes] = useState([]);
+  const [selectedThemes, setSelectedThemes] = useState<string[]>([]);
   const fileInputRef1 = useRef<HTMLInputElement>(null);
   const fileInputRef2 = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   // constant qui me permet d'initialiser useRef
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
   // constant qui creer un tableau pour les entrées
-  const inputs = useRef([]);
+  const inputs = useRef<(HTMLInputElement | HTMLTextAreaElement)[]>([]);
   // fonction qui permet de mettre toutes les entrée dans le tableau précédent
-  const addInputs = (el: any) => {
+  const addInputs = (el: HTMLInputElement | HTMLTextAreaElement | null) => {
     if (el && !inputs.current.includes(el)) {
       inputs.current.push(el);
     }
@@ -90,7 +90,7 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
     const formData2 = new FormData();
     formData2.append("file", file2);
 
-    const formData = new FormData(formRef.current);
+    const formData = new FormData(formRef.current as HTMLFormElement);
     const values = {
       title: formData.get("title") as string,
       litleDescription: formData.get("litleDescription") as string,
