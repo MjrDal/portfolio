@@ -9,7 +9,7 @@ export const Skills = () => {
       <div className="flex flex-col items-center scale-75 md:scale-100 ">
         <div className=" flex flex-col sm:flex-row mb-4 gap-4 ">
           <WheelSkills
-            image1="/html-5.svg"
+            image1="html-5.svg"
             image2="css-3.svg"
             image3="js-1.svg"
             image4="typescript.svg"
@@ -18,17 +18,17 @@ export const Skills = () => {
           <WheelSkills
             image1="react.svg"
             image2="Vector.svg"
-            image3="/tailwind.png"
-            image4="/materialize.png"
+            image3="/tailwind.PNG"
+            image4="/materialize.PNG"
             title="Framework"
           />
         </div>
         <div className="">
           <WheelSkills
-            image1="/postgressql.png"
-            image2="/redux.png"
-            image3="/sass.png"
-            image4="/gihub.png"
+            image1="/postgressql.PNG"
+            image2="/redux.PNG"
+            image3="/sass.PNG"
+            image4="/gihub.PNG"
             title="Other"
           />
         </div>
