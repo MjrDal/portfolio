@@ -43,7 +43,7 @@ export const Contact = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8090/api/mail", {
+      const response = await fetch("/api/mail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
