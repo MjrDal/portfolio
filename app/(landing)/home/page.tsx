@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import { About } from "@/components/about/About";
+import { Certificate } from "@/components/certificates/Certificates";
 import { Contact } from "@/components/contact/Contact";
 import { Presentation } from "@/components/presentation/Presentation";
 import { Projects } from "@/components/projects/Projects";
@@ -38,6 +39,8 @@ export default async function HomePage() {
       />
       <Separator />
       <Skills />
+      <Separator />
+      <Certificate />
       <Contact />
     </main>
   );

@@ -9,8 +9,8 @@ export default async function ProjectsPage() {
   const project = await prisma.project.findMany({ include: { tag: true } });
 
   return (
-    <main className="flex flex-col items-center p-24 ">
-      <div className="max-w-5xl mx-auto px-8">
+    <main className="flex flex-col items-center ">
+      <div className="flex flex-col items-center">
         <HoverEffect
           project={project}
           session={session}

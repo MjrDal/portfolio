@@ -45,7 +45,7 @@ export const HoverEffect: React.FC<Props> = (
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 min-[1000px]:grid-cols-2  min-[1340px]:grid-cols-3  py-10",
         className
       )}
     >
@@ -78,7 +78,7 @@ export const HoverEffect: React.FC<Props> = (
 
             <DialogTrigger asChild>
               <div>
-                <Card className=" bg-gray m-0 p-0 h-[420px]">
+                <Card className=" bg-gray m-0 p-0 h-[420px] w-[350px]">
                   <CardHeader className=" m-0 p-0 h-[190px] overflow-hidden">
                     <Image
                       src={`/uploads/${item.descktopImage}`}

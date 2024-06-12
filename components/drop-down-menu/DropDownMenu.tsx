@@ -1,4 +1,6 @@
-import { signOut } from "@/auth";
+"use client";
+
+import { logout } from "@/actions/logout";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Session } from "next-auth";
 import Link from "next/link";
+import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { MenuTheme } from "./MenuTheme";
 
@@ -20,12 +23,26 @@ interface Props {
 }
 
 export function DropDownMenu({ session }: Props) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  const logOut = () => {
+    logout();
+  };
   return (
-    <DropdownMenu>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
           className="box-border border-2 border-orange  rounded-full"
+          onClick={handleToggle}
         >
           <IoMenu className="text-orange text-2xl" />
         </Button>
@@ -47,51 +64,52 @@ export function DropDownMenu({ session }: Props) {
             ) : null}
 
             <div>
-              <form
-                action={async () => {
-                  "use server";
-                  await signOut();
-                }}
-              >
-                <button type="submit">Log out</button>
-              </form>
+              <button type="submit" onClick={logOut}>
+                Log out
+              </button>
             </div>
             <DropdownMenuSeparator />
           </div>
         ) : (
           <div>
-            <div className=" md:hidden">
+            <div className=" min-[1000px]:hidden">
               <Link href="/home">
-                <button>Home</button>
+                <button onClick={handleClose}>Home</button>
               </Link>
               <DropdownMenuSeparator />
             </div>
-            <div className=" md:hidden">
-              <Link href="#About">
+            <div className=" min-[1000px]:hidden">
+              <Link href="/home#About" onClick={handleClose}>
                 <button>About me</button>
               </Link>
               <DropdownMenuSeparator />
             </div>
-            <div className=" md:hidden">
-              <Link href="/projects">
+            <div className=" min-[1000px]:hidden">
+              <Link href="/projects" onClick={handleClose}>
                 <button>My project</button>
               </Link>
               <DropdownMenuSeparator />
             </div>
-            <div className=" md:hidden">
-              <Link href="#Skills">
+            <div className=" min-[1000px]:hidden">
+              <Link href="/home#Skills" onClick={handleClose}>
                 <button>My skills</button>
               </Link>
               <DropdownMenuSeparator />
             </div>
-            <div className=" md:hidden">
-              <Link href="#Contact">
+            <div className=" min-[1000px]:hidden">
+              <Link href="/home#certificates" onClick={handleClose}>
+                <button>Certificates</button>
+              </Link>
+              <DropdownMenuSeparator />
+            </div>
+            <div className=" min-[1000px]:hidden">
+              <Link href="/home#Contact" onClick={handleClose}>
                 <button>Contact</button>
               </Link>
               <DropdownMenuSeparator />
             </div>
             <div>
-              <Link href="/login">
+              <Link href="/login" onClick={handleClose}>
                 <button>Log In</button>
               </Link>
               <DropdownMenuSeparator />

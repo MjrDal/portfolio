@@ -4,7 +4,7 @@ import { WheelSkills } from "../wheelSkills/WheelSkills";
 
 export const Skills = () => {
   return (
-    <div id="Skills" className="font-sans mt-4">
+    <div id="Skills" className="font-sans mt-4 mb-14">
       <Title title="My skills" />
       <div className="flex flex-col items-center scale-75 md:scale-100 ">
         <div className=" flex flex-col sm:flex-row mb-4 gap-4 ">
