@@ -11,18 +11,33 @@ export const Certificate = () => {
         <CertificatesCard
           title={"HTML 5 / CSS"}
           link={"/certificat-html5-CSS.PNG"}
+          alt="certificate html5"
         />
-        <CertificatesCard title={"Sass"} link={"/certificat-Sass.PNG"} />
+        <CertificatesCard
+          title={"Sass"}
+          link={"/certificat-Sass.PNG"}
+          alt="certificate Sass"
+        />
         <CertificatesCard
           title={"Git & Github"}
           link={"/certificat-Git-Github.PNG"}
+          alt="certificate Github"
         />
         <CertificatesCard
           title={"Javascript"}
           link={"/certificat-Javascript.PNG"}
+          alt="certificate Javascript"
         />
-        <CertificatesCard title={"React"} link={"/certificat-React.PNG"} />
-        <CertificatesCard title={"Redux"} link={"/certificat-Redux.PNG"} />
+        <CertificatesCard
+          title={"React"}
+          link={"/certificat-React.PNG"}
+          alt="certificate React"
+        />
+        <CertificatesCard
+          title={"Redux"}
+          link={"/certificat-Redux.PNG"}
+          alt="certificate Redux"
+        />
       </div>
     </div>
   );
