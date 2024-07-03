@@ -7,7 +7,7 @@ export const About = () => {
     <div id="about" className="font-sans mt-4 mb-[180px]">
       <Title title="About me" />
       <div className=" flex flex-col md:flex-row items-center pt-6 px-10 gap-32">
-        <p className="text-white text-xl">
+        <p className=" text-xl">
           Passionate about digital creation and consistently interested in the
           latest technological advancements, I am a dedicated front-end
           developer. With an unwavering passion for web and application
