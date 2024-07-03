@@ -39,7 +39,7 @@ export const Skills = () => {
             alt2="logo redux"
             image3="/sass.PNG"
             alt3="logo sass"
-            image4="/github.PNG"
+            image4="/gihub.PNG"
             alt4="logo github"
             title="Other"
           />
