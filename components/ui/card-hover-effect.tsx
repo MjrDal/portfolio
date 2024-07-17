@@ -24,7 +24,7 @@ interface Props {
     litleDescription: string;
     description: string;
     descktopImage: string;
-    mobileImage: string;
+    mobileImage: string | null;
     link: string;
     tag: {
       id: string;
@@ -136,7 +136,7 @@ export const HoverEffect: React.FC<Props> = (
                 alt={project[idxNumber].title}
                 className="rounded-[10px]"
               />
-              {project[idxNumber].mobileImage !== "null" ? (
+              {project[idxNumber].mobileImage !== null ? (
                 <Image
                   src={project[idxNumber].mobileImage}
                   width={400}
