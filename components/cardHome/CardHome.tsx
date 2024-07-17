@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import Image from "next/image";
 import { PinContainer } from "../ui/3d-pin";
 
 interface CardHomeProps {
@@ -31,7 +31,7 @@ export function CardHome({
             <p className="text-xs text-white">Teck stack: {tag}</p>
           </div>
           <div>
-            <Image src={image} width={400} height={400} alt={alt} />
+            <img src={image} width={400} height={400} alt={alt} />
           </div>
           <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
         </div>

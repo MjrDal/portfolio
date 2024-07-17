@@ -24,7 +24,7 @@ interface Props {
     litleDescription: string;
     description: string;
     descktopImage: string;
-    mobileImage: string | null;
+    mobileImage: string;
     link: string;
     tag: {
       id: string;
@@ -81,7 +81,7 @@ export const HoverEffect: React.FC<Props> = (
                 <Card className=" bg-gray m-0 p-0 h-[420px] w-[350px]">
                   <CardHeader className=" m-0 p-0 h-[190px] overflow-hidden">
                     <Image
-                      src={`/uploads/${item.descktopImage}`}
+                      src={item.descktopImage}
                       width={400}
                       height={400}
                       alt={item.title}
@@ -130,7 +130,7 @@ export const HoverEffect: React.FC<Props> = (
           <div>
             <div className=" flex flex-row justify-center mt-2">
               <Image
-                src={`/uploads/${project[idxNumber].descktopImage}`}
+                src={project[idxNumber].descktopImage}
                 width={400}
                 height={296}
                 alt={project[idxNumber].title}
@@ -138,7 +138,7 @@ export const HoverEffect: React.FC<Props> = (
               />
               {project[idxNumber].mobileImage !== "null" ? (
                 <Image
-                  src={`/uploads/${project[idxNumber].mobileImage}`}
+                  src={project[idxNumber].mobileImage}
                   width={400}
                   height={400}
                   alt={project[idxNumber].title}

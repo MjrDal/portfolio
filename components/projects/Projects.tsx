@@ -48,7 +48,7 @@ export const Projects: React.FC<Props> = ({
             title={firstProject.title}
             description={firstProject.litleDescription}
             tag="React/html/Scss"
-            image={`/uploads/${firstProject.descktopImage}`}
+            image={firstProject.descktopImage}
             alt={firstProject?.title}
           />
           {session?.user.role === "ADMIN" ? (
@@ -73,7 +73,7 @@ export const Projects: React.FC<Props> = ({
             title={secondProject.title}
             description={secondProject.litleDescription}
             tag="html/Scss"
-            image={`/uploads/${secondProject.descktopImage}`}
+            image={secondProject.descktopImage}
             alt={secondProject.title}
           />
           {session?.user.role === "ADMIN" ? (
@@ -98,7 +98,7 @@ export const Projects: React.FC<Props> = ({
             title={thirdProject.title}
             description={thirdProject.litleDescription}
             tag="React/html/css"
-            image={`/uploads/${thirdProject.descktopImage}`}
+            image={thirdProject.descktopImage}
             alt={thirdProject.title}
           />
           {session?.user.role === "ADMIN" ? (

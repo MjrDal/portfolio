@@ -1,5 +1,6 @@
 "use client";
 import { projectAction } from "@/actions/project";
+import { uploadFile } from "@/app/api/upload/route";
 import { AddProjectSchema } from "@/schemas";
 import { useRouter } from "next/navigation";
 import { useRef, useState, useTransition } from "react";
@@ -19,6 +20,8 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
   const [selectedThemes, setSelectedThemes] = useState<string[]>([]);
   const fileInputRef1 = useRef<HTMLInputElement>(null);
   const fileInputRef2 = useRef<HTMLInputElement>(null);
+  const [image1, setimage1] = useState<string | null>(null);
+  const [image2, setimage2] = useState<string | null>(null);
   const router = useRouter();
 
   // constant qui me permet d'initialiser useRef
@@ -82,26 +85,25 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
 
     const file1 = fileInput1.files[0];
     const file2 = fileInput2.files[0];
-    console.log(file1);
-    console.log(file2);
 
     const formData1 = new FormData();
     formData1.append("file", file1);
     const formData2 = new FormData();
     formData2.append("file", file2);
 
+    const url1 = await uploadFile(formData1);
+    const url2 = await uploadFile(formData2);
+
     const formData = new FormData(formRef.current as HTMLFormElement);
     const values = {
       title: formData.get("title") as string,
       litleDescription: formData.get("litleDescription") as string,
       description: formData.get("description") as string,
-      descktopImage: fileInput1.files[0].name,
-      mobileImage: file2 ? fileInput2.files[0].name : "null",
+      descktopImage: url1,
+      mobileImage: file2 ? url2 : "null",
       link: formData.get("link") as string,
       tag: selectedThemes,
     };
-
-    console.log(values);
 
     const validatedData = AddProjectSchema.parse(values);
 
@@ -109,14 +111,14 @@ export const ProjectForm: React.FC<Props> = ({ tag }) => {
       projectAction(validatedData).then((data) => {});
     });
 
-    if (fileInput1?.files) {
-      sendImage(formData1);
-      router.push("/projects");
-    }
+    // if (fileInput1?.files) {
+    //   sendImage(formData1);
+    //   router.push("/projects");
+    // }
 
-    if (fileInput2?.files !== undefined) {
-      sendImage(formData2);
-    }
+    // if (fileInput2?.files !== undefined) {
+    //   sendImage(formData2);
+    // }
   };
 
   return (

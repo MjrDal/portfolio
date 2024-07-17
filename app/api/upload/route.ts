@@ -1,3 +1,6 @@
+"use server";
+
+import { put } from "@vercel/blob";
 import { mkdir, stat, writeFile } from "fs/promises";
 import mime from "mime";
 import { NextRequest, NextResponse } from "next/server";
@@ -50,3 +53,14 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+export const uploadFile = async (formData: FormData) => {
+  const file = formData.get("file") as File;
+  const filename = file.name;
+  // creation du blob
+  const blob = await put(filename, file, {
+    access: "public",
+  });
+
+  return blob.url;
+};
