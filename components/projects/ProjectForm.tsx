@@ -1,6 +1,6 @@
 "use client";
 import { projectAction } from "@/actions/project";
-import { uploadFile } from "@/app/api/upload/route";
+import { uploadFile } from "@/app/(landing)/test/upload.action";
 import { AddProjectSchema } from "@/schemas";
 import { useRouter } from "next/navigation";
 import { useRef, useState, useTransition } from "react";

@@ -54,13 +54,13 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export const uploadFile = async (formData: FormData) => {
-  const file = formData.get("file") as File;
-  const filename = file.name;
-  // creation du blob
-  const blob = await put(filename, file, {
-    access: "public",
-  });
+// export const uploadFile = async (formData: FormData) => {
+//   const file = formData.get("file") as File;
+//   const filename = file.name;
+//   // creation du blob
+//   const blob = await put(filename, file, {
+//     access: "public",
+//   });
 
-  return blob.url;
-};
+//   return blob.url;
+// };
