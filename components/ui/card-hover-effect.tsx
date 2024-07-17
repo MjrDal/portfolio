@@ -136,7 +136,7 @@ export const HoverEffect: React.FC<Props> = (
                 alt={project[idxNumber].title}
                 className="rounded-[10px]"
               />
-              {project[idxNumber].mobileImage !== null ? (
+              {/* {project[idxNumber].mobileImage !== null ? (
                 <Image
                   src={project[idxNumber].mobileImage}
                   width={400}
@@ -144,7 +144,7 @@ export const HoverEffect: React.FC<Props> = (
                   alt={project[idxNumber].title}
                   className="rounded-[10px]"
                 />
-              ) : null}
+              ) : null} */}
             </div>
             <div className="mt-4">
               <p className="text-base">{project[idxNumber].description}</p>
